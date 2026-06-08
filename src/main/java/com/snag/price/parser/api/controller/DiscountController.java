@@ -23,7 +23,9 @@ public class DiscountController {
     private final DiscountService discountService;
 
     @GetMapping("/page")
-    public ResponseEntity<Page<VkPost>> getPageDiscounts(@PageableDefault(direction = Sort.Direction.ASC) Pageable pageable) {
+    public ResponseEntity<Page<VkPost>> getPageDiscounts(@PageableDefault(
+            sort = "createdAt",
+            direction = Sort.Direction.DESC) Pageable pageable) {
         Page<VkPost> page = discountService.getPageDiscounts(pageable);
         return ResponseEntity.ok(page);
     }

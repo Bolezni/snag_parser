@@ -1,0 +1,17 @@
+vk:
+  token: "75f61cdd75f61cdd75f61cddd576b79f32775f675f61cdd1fd4ec5fd73376b40d6bd46c"
+  domain: "probnick_ru"
+  posts-per-request: 50
+  max-requests: 5
+
+spring:
+  datasource:
+    url: jdbc:postgresql://localhost:5432/snag
+    username: postgres
+    password: admin
+    driver-class-name: org.postgresql.Driver
+
+  jpa:
+    show-sql: true
+    hibernate:
+      ddl-auto: update

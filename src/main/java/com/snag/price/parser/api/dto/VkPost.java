@@ -9,16 +9,27 @@ import lombok.NoArgsConstructor;
 @Builder
 @AllArgsConstructor
 @NoArgsConstructor
-public class VkPost {
-    private Long id;
+public class VkPost implements ParsedPost {
+    private Long   id;
     private String text;
-    private Long date;        // unix timestamp
+    private Long   date;
     private String imageUrl;
-    private Integer likes;
-    private Integer reposts;
-    private String sourceUrl; // ссылка на пост
-
-    private String productName;
-    private String discountAmount;  // "-30%" или "скидка 500 руб"
+    private String sourceUrl;
     private String promoCode;
+    private String discountAmount;
+    private String productName;
+    private int    likes;
+    private int    reposts;
+
+    private String sourceName;
+
+    @Override
+    public String getExternalId() {
+        return id != null ? String.valueOf(id) : null;
+    }
+
+    @Override
+    public long getDate() {
+        return date != null ? date : 0L;
+    }
 }
